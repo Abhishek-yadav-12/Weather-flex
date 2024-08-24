@@ -37,7 +37,7 @@ const dateBuilder = (d) => {
   return `${day}, ${date} ${month} ${year}`;
 };
 const defaults = {
-  color: "white",
+  color: "#686767",
   size: 112,
   animate: true,
 };
