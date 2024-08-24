@@ -9,6 +9,7 @@ function Forcast(props) {
   const [weather, setWeather] = useState({});
 
   const search = useCallback((city) => {
+    console.log("search function called");
     axios
       .get(
         `${apiKeys.base}weather?q=${
@@ -21,11 +22,10 @@ function Forcast(props) {
       })
       .catch((error) => {
         console.log(error);
-        setWeather("");
-        setQuery("");
         setError({ message: "Not Found", query: query });
+        setQuery("");
       });
-  }, [query]); // Add query as a dependency
+  }, [query]);
 
   const defaults = {
     color: "white",
@@ -35,7 +35,11 @@ function Forcast(props) {
 
   useEffect(() => {
     search("Delhi");
-  }, []);
+  }, [search]);
+
+  const handleSearch = () => {
+    search(query);
+  };
 
   return (
     <div className="forecast">
@@ -60,7 +64,7 @@ function Forcast(props) {
           <div className="img-box">
             <img
               src="https://images.avishkaar.cc/workflow/newhp/search-white.png"
-              onClick={() => search(query)}
+              onClick={handleSearch}
               alt="Search icon"
             />
           </div>
