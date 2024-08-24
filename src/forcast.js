@@ -37,9 +37,9 @@ function Forcast(props) {
     search("Delhi");
   }, []);
 
-  const handleSearch = () => {
-    search(query);
-  };
+  // const handleSearch = () => {
+  //   search(query);
+  // };
 
   return (
     <div className="forecast">
