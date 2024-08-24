@@ -35,7 +35,7 @@ function Forcast(props) {
 
   useEffect(() => {
     search("Delhi");
-  }, [search]);
+  }, []);
 
   const handleSearch = () => {
     search(query);
